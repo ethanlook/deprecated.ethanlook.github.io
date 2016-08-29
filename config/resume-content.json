@@ -1,0 +1,97 @@
+{
+  "name": "Ethan Look",
+  "contacts": [
+    {
+      "title": "ethan@lookfamily.org",
+      "address": "mailto:ethan@lookfamily.org"
+    },
+    {
+      "title": "650-823-8500",
+      "address": "tel:650-823-8500"
+    },
+    {
+      "title": "Github/ethanlook",
+      "address": "https://github.com/ethanlook"
+    },
+    {
+      "title": "LinkedIn",
+      "address": "https://www.linkedin.com/in/ethanlook"
+    },
+    {
+      "title": "1401 Parkinson Avenue",
+      "address": null
+    },
+    {
+      "title": "Palo Alto, CA 94301",
+      "address": null
+    }    
+  ],
+  "objective": "To continue to grow my programming skills and enrich my experience in a challenging and engaging environment. To collaborate on a product or service in a team-driven atmosphere.",
+  "education": {
+    "yearMajor": "Junior, Computer Science",
+    "school": "Vanderbilt University",
+    "gpa": "Major GPA: 4.00",
+    "currentCoursework": [
+      "Algorithms",
+      "Operating Systems",
+      "Programming Languages",
+      "Web-based System Architecture"
+    ],
+    "completedCoursework": [
+      "Computer Organization",
+      "Digital Logic",
+      "Discrete Mathematics",
+      "Intermediate Software Design",
+      "Program Design and Data Structures"
+    ]
+  },
+  "technicalExperience": [
+    {
+      "title": "Tidepool, San Francisco, CA",
+      "subtitle": "Intern, June 2015 - Present",
+      "description": "A non-profit startup developing a secure data platform with integrated apps to reduce the burden of Type 1 Diabetes.",
+      "infoList": [
+        "Development of a command-line toolkit for data processing, analysis, and conversion to xlsx format.",
+        "Development of a client-side data visualization intended for printing.",
+        "Development of an iOS framework for interfacing with data ingestion APIs.",
+        "Development of an iOS application to add context to aggregated data.",
+        "Testing of software under white- and black-box conditions.",
+        "Documentation of resources for developed technologies."
+      ]
+    },
+    {
+      "title": "VandyApps, Student Organization",
+      "subtitle": "President, May 2016 - Present; Vice President, January - May 2016",
+      "description": "A club for students interested in expanding their software-development skills and preparing themselves to be industry-ready engineers.",
+      "infoList": [
+        "Coordination of weekly general body meetings including member tech talks, learning sessions, and visits from external guests.",
+        "Fundraising for club-sponsored events and resources, such as our tech library.",
+        "Preparation of club-sponsored hack nights and coding competitions.",
+        "Development of teaching materials for introductory iOS sessions."
+      ]
+    },
+    {
+      "title": "Teaching Assistant and Grader, Data Structures Class",
+      "subtitle": "January 2016 - Present",
+      "description": "The second course in Vanderbilt's computer science curriculum which introduces data structures and their applications, problem solving techniques, and well-designed software.",
+      "infoList": [
+        "Grading of weekly programming assignments and projects.",
+        "Student support via weekly office hours.",
+        "Grading of three written midterms and the final exam."
+      ]
+    } 
+  ],
+  "programmingLanguages": [
+    "C++",
+    "CSS",
+    "D3.js",
+    "HTML",
+    "Java",
+    "Javascript",
+    "Node.js",
+    "Processing",
+    "Python",
+    "React",
+    "Swift"
+  ]
+}
