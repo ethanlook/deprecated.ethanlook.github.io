@@ -177,7 +177,7 @@ module.exports={
       "address": "https://github.com/ethanlook"
     },
     {
-      "title": "LinkedIn",
+      "title": "LinkedIn/ethanlook",
       "address": "https://www.linkedin.com/in/ethanlook"
     },
     {
