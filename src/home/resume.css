@@ -1,0 +1,155 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:400,400i,500,600';
+
+* {
+ font-family: 'Roboto', sans-serif;
+ font-weight: 400;
+ text-decoration: none;
+ color: #404040;
+ margin: 0;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #79AE3D;
+  text-transform: uppercase;
+  text-align: center;
+
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+
+  margin-bottom: 8px;
+}
+
+h3 {
+  font-size: 13px;
+  font-weight: 500;
+
+  margin-bottom: 6px;
+}
+
+h4 {
+  font-size: 12px;
+  font-weight: 500;
+  font-color: #7F7F7F;
+
+  margin-bottom: 4px;
+}
+
+p {
+  font-size: 12px;
+  font-color: #7F7F7F;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 12px;
+  font-color: #7F7F7F;
+}
+
+#app {
+  margin: 15px auto;
+  min-width: 690px;
+  max-width: 800px;
+
+  padding: 10px;
+}
+
+.separator {
+  width: 80%;
+  margin: 0 auto;
+  height: 1px;
+  background-color: #808080;
+}
+
+.contact-information {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.objective {
+  margin: 10px 0;
+}
+
+.education {
+  margin: 10px 0;
+}
+
+.education-highlights {
+  padding-bottom: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+.education-highlights > li {
+  margin: 0 10px;
+}
+
+.education > h3, .education > div > h4 {
+  text-align: center;
+}
+
+.education-current {
+  margin-bottom: 4px;
+}
+
+.education-current > ul {
+  display: flex;
+  justify-content: center;
+}
+
+.education-current > ul > li {
+  margin: 0 10px;
+}
+
+.education-completed > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.technical-experience {
+  margin: 10px 0;
+}
+
+.technical-experience-item {
+  margin-bottom: 8px;
+}
+
+.technical-experience:last-child {
+  margin-bottom: 0px;
+}
+
+.technical-experience-item > ul {
+  list-style-type: circle;
+  padding-left: 20px;
+}
+
+.programming-languages {
+  margin: 10px 0;
+}
+
+.programming-languages > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media print {
+  @page { margin: 0; }
+  body { margin: 0.5in; }
+
+  #app {
+    margin: auto;
+    max-width: none;
+    padding: 0;
+  }
+}

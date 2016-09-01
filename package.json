@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/app.js"
+    "build": "npm run build-home",
+    "build-home": "browserify -t [ babelify --presets [ react ] ] src/home/index.js -o build/app.js"
   },
   "author": "Ethan Look",
   "license": "ISC",

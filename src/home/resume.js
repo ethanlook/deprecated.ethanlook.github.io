@@ -1,5 +1,5 @@
 var React = require('react');
-var resumeContent = require('../config/resume-content');
+var resumeContent = require('../../config/resume-content');
  
 var Resume = React.createClass({
   render: function() {
@@ -7,9 +7,13 @@ var Resume = React.createClass({
       <div className="print-resume">
         <h1>{ resumeContent.name }</h1>
         { this.renderContactInformation() }
+        <div className="separator"></div>
         { this.renderObjective() }
+        <div className="separator"></div>
         { this.renderEducation() }
+        <div className="separator"></div>
         { this.renderTechnicalExperience() }
+        <div className="separator"></div>
         { this.renderLanguages() }
       </div>
     );
@@ -53,27 +57,31 @@ var Resume = React.createClass({
           <li>{ education.gpa }</li>
         </ul>
 
-        <h3>Relevant Coursework</h3>
+        <h3>Coursework</h3>
 
-        <h4>Current Coursework</h4>
-        <ul className="education-current">
-          {
-            education
-              .currentCoursework.map(function(course, i) {
-                return (<li key={i}>{ course }</li>);
-            })
-          }
-        </ul>
+        <div className="education-current">
+          <h4>Current</h4>
+          <ul>
+            {
+              education
+                .coursework.current.map(function(course, i) {
+                  return (<li key={i}>{ course }</li>);
+              })
+            }
+          </ul>
+        </div>
 
-        <h4>Completed Coursework</h4>
-        <ul className="education-completed">
-          {
-            education
-              .completedCoursework.map(function(course, i) {
-                return (<li key={i}>{ course }</li>);
-            })
-          }
-        </ul>        
+        <div className="education-completed">
+          <h4>Completed</h4>
+          <ul>
+            {
+              education
+                .coursework.completed.map(function(course, i) {
+                  return (<li key={i}>{ course }</li>);
+              })
+            }
+          </ul>
+        </div>
       </div>
     );
   },
@@ -125,7 +133,12 @@ var TechnicalExperienceItem = React.createClass({
         <ul className="info-list">
           {
             this.props.experience.infoList.map(function(info, i) {
-              return (<li key={i}>{ info }</li>);
+              if (info.link != null) {
+                return (<li key={i}>
+                  { info.description } <a href={info.link}>{info.linkText}</a>
+                </li>);
+              }
+              return (<li key={i}>{ info.description }</li>);
             })
           }
         </ul>
