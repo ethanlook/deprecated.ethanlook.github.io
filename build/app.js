@@ -56,22 +56,22 @@ module.exports={
       "infoList": [
         {
           "description": "Development of a command-line toolkit for data processing, analysis, and conversion to xlsx format.",
-          "link": "#",
+          "link": "https://github.com/tidepool-org/command-line-data-tools",
           "linkText": "(Javascript)"
         },
         {
           "description": "Development of a client-side data visualization for generating printed reports.",
-          "link": "#",
+          "link": "https://github.com/ethanlook/blip/tree/ethanlook-printview",
           "linkText": "(Javascript, React, D3.js)"
         },
         {
           "description": "Development of an iOS framework for interfacing with data ingestion REST APIs.",
-          "link": "#",
+          "link": "https://github.com/ethanlook/TidepoolKit",
           "linkText": "(Swift)"
         },
         {
           "description": "Development of an iOS application to add context to aggregated data.",
-          "link": "#",
+          "link": "https://github.com/tidepool-org/urchin",
           "linkText": "(Swift)"
         },
         {
@@ -139,6 +139,10 @@ module.exports={
       "title": "Mega Rocket Blaster",
       "subtitle": "Independent Developer",
       "description": "Designed, developed and released my own iOS app. A modern twist on a classic video game style.",
+      "descriptionLink": {
+        "text": "(Swift)",
+        "link": "https://itunes.apple.com/us/app/mega-rocket-blaster/id957161385?mt=8"
+      },
       "infoList": []
     }
   ],
@@ -20937,6 +20941,27 @@ var TechnicalExperienceItem = React.createClass({
   },
 
   render: function () {
+    var description;
+    var descriptionLink = this.props.experience.descriptionLink;
+    if (descriptionLink == null) {
+      description = React.createElement(
+        'p',
+        { className: 'description' },
+        this.props.experience.description
+      );
+    } else {
+      description = React.createElement(
+        'p',
+        { className: 'description' },
+        this.props.experience.description,
+        ' ',
+        React.createElement(
+          'a',
+          { href: descriptionLink.link },
+          descriptionLink.text
+        )
+      );
+    }
     return React.createElement(
       'div',
       { className: 'technical-experience-item' },
@@ -20950,11 +20975,7 @@ var TechnicalExperienceItem = React.createClass({
         { className: 'subtitle' },
         this.props.experience.subtitle
       ),
-      React.createElement(
-        'p',
-        { className: 'description' },
-        this.props.experience.description
-      ),
+      description,
       React.createElement(
         'ul',
         { className: 'info-list' },

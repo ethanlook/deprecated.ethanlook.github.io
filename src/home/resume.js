@@ -125,11 +125,20 @@ var TechnicalExperienceItem = React.createClass({
   },
 
   render: function() {
+    var description;
+    var descriptionLink = this.props.experience.descriptionLink;
+    if (descriptionLink == null) {
+      description = <p className="description">{ this.props.experience.description }</p>;
+    } else {
+      description = <p className="description">
+        { this.props.experience.description } <a href={descriptionLink.link}>{descriptionLink.text}</a>
+      </p>
+    }
     return (
       <div className="technical-experience-item">
         <h3 className="title">{ this.props.experience.title }</h3>
         <h4 className="subtitle">{ this.props.experience.subtitle }</h4>
-        <p className="description">{ this.props.experience.description }</p>
+        { description }
         <ul className="info-list">
           {
             this.props.experience.infoList.map(function(info, i) {
