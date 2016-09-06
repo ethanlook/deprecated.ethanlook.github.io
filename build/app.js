@@ -11,15 +11,15 @@ module.exports={
       "address": "tel:650-823-8500"
     },
     {
-      "title": "Github/ethanlook",
+      "title": "github.com/ethanlook",
       "address": "https://github.com/ethanlook"
     },
     {
-      "title": "LinkedIn/ethanlook",
+      "title": "linkedin.com/in/ethanlook",
       "address": "https://www.linkedin.com/in/ethanlook"
     },
     {
-      "title": "1401 Parkinson Avenue",
+      "title": "1401 Parkinson Ave.",
       "address": null
     },
     {
@@ -27,7 +27,7 @@ module.exports={
       "address": null
     }    
   ],
-  "objective": "Summer internship at a consumer-facing mobile/web company using and growing my skills in iOS (Swift), ReactJS, Node and Javascript.",
+  "objective": "Summer internship at a consumer-facing mobile/web company using and growing my skills in iOS, React, Node.js and JavaScript.",
   "education": {
     "yearMajor": "Junior, Computer Science",
     "school": "Vanderbilt University",
@@ -44,43 +44,38 @@ module.exports={
         "Digital Logic",
         "Discrete Mathematics",
         "Intermediate Software Design",
-        "Program Design and Data Structures"
+        "Data Structures"
       ]      
     }
   },
   "technicalExperience": [
     {
       "title": "Tidepool, San Francisco, CA",
-      "subtitle": "Intern, June 2015 - August 2015, June 2016 - August 2016",
-      "description": "A non-profit startup developing a secure data platform and mobile/web apps for people living with Type 1 Diabetes. I was responsible for:",
+      "subtitle": "Software Intern, June 2015 - August 2015, June 2016 - August 2016",
+      "description": "A non-profit startup developing a secure data platform and applications for people living with Type 1 Diabetes. Collaborated closely with design and product management. Responsible for developing:",
       "infoList": [
         {
-          "description": "Development of a command-line toolkit for data processing, analysis, and conversion to xlsx format.",
+          "description": "A command-line toolkit for data processing, analysis, and conversion data to xlsx format.",
           "link": "https://github.com/tidepool-org/command-line-data-tools",
-          "linkText": "(Javascript)"
+          "linkText": "(JavaScript)"
         },
         {
-          "description": "Development of a client-side data visualization for generating printed reports.",
+          "description": "A client-side data visualization for generating printed reports.",
           "link": "https://github.com/ethanlook/blip/tree/ethanlook-printview",
-          "linkText": "(Javascript, React, D3.js)"
+          "linkText": "(JavaScript, React, D3.js)"
         },
         {
-          "description": "Development of an iOS framework for interfacing with data ingestion REST APIs.",
+          "description": "An iOS framework for interfacing with data ingestion REST APIs.",
           "link": "https://github.com/ethanlook/TidepoolKit",
           "linkText": "(Swift)"
         },
         {
-          "description": "Development of an iOS application to add context to aggregated data.",
+          "description": "An iOS application to add context to diabetes data.",
           "link": "https://github.com/tidepool-org/urchin",
           "linkText": "(Swift)"
         },
         {
-          "description": "Automated and manual testing, documentation.",
-          "link": null,
-          "linkText": null
-        },
-        {
-          "description": "Collaborated closely with design and product management.",
+          "description": "Automated and manual tests, documentation.",
           "link": null,
           "linkText": null
         }
@@ -89,7 +84,7 @@ module.exports={
     {
       "title": "VandyApps, Student Organization",
       "subtitle": "President, May 2016 - Present; Vice President, January - May 2016",
-      "description": "A club for students interested in expanding their software-development skills and preparing themselves to be industry-ready engineers.",
+      "description": "A club for students interested in expanding their software-development skills and preparing themselves to be industry-ready engineers. My responsibilities include:",
       "infoList": [
         {
           "description": "Coordination of weekly general body meetings including member tech talks, learning sessions, and visits from external guests.",
@@ -116,7 +111,7 @@ module.exports={
     {
       "title": "Data Structures Class",
       "subtitle": "Teaching Assistant and Grader, January 2016 - Present",
-      "description": "The second course in Vanderbilt's computer science curriculum which introduces data structures and their applications, problem solving techniques, and well-designed software.",
+      "description": "The second course in Vanderbilt's computer science curriculum which introduces data structures and their applications, problem solving techniques, and well-designed software. My responsibilities include:",
       "infoList": [
         {
           "description": "Grading of weekly programming assignments and projects.",
@@ -152,7 +147,7 @@ module.exports={
     "D3.js",
     "HTML",
     "Java",
-    "Javascript",
+    "JavaScript",
     "Node.js",
     "Processing",
     "Python",
@@ -20817,6 +20812,11 @@ var Resume = React.createClass({
 
   renderEducation: function () {
     var education = resumeContent.education;
+
+    var currentCourses = education.coursework.current.join(", ");
+
+    var completedCourses = education.coursework.completed.join(", ");
+
     return React.createElement(
       'div',
       { className: 'education' },
@@ -20831,12 +20831,12 @@ var Resume = React.createClass({
         React.createElement(
           'li',
           null,
-          education.yearMajor
+          education.school
         ),
         React.createElement(
           'li',
           null,
-          education.school
+          education.yearMajor
         ),
         React.createElement(
           'li',
@@ -20847,46 +20847,36 @@ var Resume = React.createClass({
       React.createElement(
         'h3',
         null,
-        'Coursework'
+        'Relevant Coursework'
       ),
       React.createElement(
         'div',
         { className: 'education-current' },
         React.createElement(
-          'h4',
+          'p',
           null,
-          'Current'
-        ),
-        React.createElement(
-          'ul',
-          null,
-          education.coursework.current.map(function (course, i) {
-            return React.createElement(
-              'li',
-              { key: i },
-              course
-            );
-          })
+          React.createElement(
+            'span',
+            { className: 'bold' },
+            'Current:'
+          ),
+          ' ',
+          currentCourses
         )
       ),
       React.createElement(
         'div',
         { className: 'education-completed' },
         React.createElement(
-          'h4',
+          'p',
           null,
-          'Completed'
-        ),
-        React.createElement(
-          'ul',
-          null,
-          education.coursework.completed.map(function (course, i) {
-            return React.createElement(
-              'li',
-              { key: i },
-              course
-            );
-          })
+          React.createElement(
+            'span',
+            { className: 'bold' },
+            'Completed:'
+          ),
+          ' ',
+          completedCourses
         )
       )
     );

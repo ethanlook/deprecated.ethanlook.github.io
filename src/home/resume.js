@@ -48,39 +48,34 @@ var Resume = React.createClass({
 
   renderEducation: function() {
     var education = resumeContent.education;
+
+    var currentCourses = education
+                          .coursework
+                          .current
+                            .join(", ");
+
+    var completedCourses = education
+                            .coursework
+                            .completed
+                              .join(", ");
+
     return (
       <div className="education">
         <h2>Education</h2>
         <ul className="education-highlights">
-          <li>{ education.yearMajor }</li>
           <li>{ education.school }</li>
+          <li>{ education.yearMajor }</li>
           <li>{ education.gpa }</li>
         </ul>
 
-        <h3>Coursework</h3>
+        <h3>Relevant Coursework</h3>
 
         <div className="education-current">
-          <h4>Current</h4>
-          <ul>
-            {
-              education
-                .coursework.current.map(function(course, i) {
-                  return (<li key={i}>{ course }</li>);
-              })
-            }
-          </ul>
+          <p><span className="bold">Current:</span> {currentCourses}</p>
         </div>
 
         <div className="education-completed">
-          <h4>Completed</h4>
-          <ul>
-            {
-              education
-                .coursework.completed.map(function(course, i) {
-                  return (<li key={i}>{ course }</li>);
-              })
-            }
-          </ul>
+          <p><span className="bold">Completed:</span> {completedCourses}</p>
         </div>
       </div>
     );
