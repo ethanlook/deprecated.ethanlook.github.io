@@ -81,17 +81,17 @@ a:hover {
 }
 
 .contact-information {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: space-between;
 }
 
 .objective {
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
 .education {
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
 .education-highlights {
@@ -135,7 +135,7 @@ a:hover {
 }
 
 .technical-experience {
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
 .technical-experience-item {
@@ -156,7 +156,7 @@ a:hover {
 }
 
 .programming-languages {
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
 .programming-languages > ul {

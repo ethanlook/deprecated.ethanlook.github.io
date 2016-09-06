@@ -87,7 +87,7 @@ module.exports={
       "description": "A club for students interested in expanding their software-development skills and preparing themselves to be industry-ready engineers. My responsibilities include:",
       "infoList": [
         {
-          "description": "Coordination of weekly general body meetings including member tech talks, learning sessions, and visits from external guests.",
+          "description": "Coordination of weekly general body meetings including member tech talks, learning sessions, and external visits.",
           "link": null,
           "linkText": null
         },
