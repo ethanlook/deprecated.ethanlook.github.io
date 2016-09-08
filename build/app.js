@@ -1,36 +1,44 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports={
   "name": "Ethan Look",
-  "contacts": [
-    {
-      "title": "ethan@lookfamily.org",
-      "address": "mailto:ethan@lookfamily.org"
-    },
-    {
-      "title": "650-823-8500",
-      "address": "tel:650-823-8500"
-    },
-    {
-      "title": "github.com/ethanlook",
-      "address": "https://github.com/ethanlook"
-    },
-    {
-      "title": "linkedin.com/in/ethanlook",
-      "address": "https://www.linkedin.com/in/ethanlook"
-    },
-    {
-      "title": "1401 Parkinson Ave.",
-      "address": null
-    },
-    {
-      "title": "Palo Alto, CA 94301",
-      "address": null
-    }    
-  ],
-  "objective": "Summer internship at a consumer-facing mobile/web company using and growing my skills in iOS, React, Node.js and JavaScript.",
+  "contacts": {
+    "first": [
+      {
+        "title": "ethan@lookfamily.org",
+        "address": "mailto:ethan@lookfamily.org"
+      },
+      {
+        "title": "650-823-8500",
+        "address": "tel:650-823-8500"
+      },
+      {
+        "title": "1401 Parkinson Ave.",
+        "address": null
+      },
+      {
+        "title": "Palo Alto, CA 94301",
+        "address": null
+      }    
+    ],
+    "second": [
+      {
+        "title": "github.com/ethanlook",
+        "address": "https://github.com/ethanlook"
+      },
+      {
+        "title": "linkedin.com/in/ethanlook",
+        "address": "https://www.linkedin.com/in/ethanlook"
+      }
+    ]
+  },
+  "objective": {
+      first: "Summer internship at a consumer-facing mobile or web company",
+      second: "using and growing my skills in iOS, React, Node.js and JavaScript."
+  },
   "education": {
-    "yearMajor": "Junior, Computer Science",
+    "yearMajor": "B.S. Computer Science, expected 2018",
     "school": "Vanderbilt University",
+    "schoolLocation": "Nashville, Tennessee",
     "gpa": "Major GPA: 4.00, Overall GPA: 3.88",
     "coursework": {
       "current": [
@@ -51,11 +59,11 @@ module.exports={
   "technicalExperience": [
     {
       "title": "Tidepool, San Francisco, CA",
-      "subtitle": "Software Intern, June 2015 - August 2015, June 2016 - August 2016",
+      "subtitle": "Software Intern, June 2015 - August 2015; June 2016 - August 2016",
       "description": "A non-profit startup developing a secure data platform and applications for people living with Type 1 Diabetes. Collaborated closely with design and product management. Responsible for developing:",
       "infoList": [
         {
-          "description": "A command-line toolkit for data processing, analysis, and conversion data to xlsx format.",
+          "description": "A command-line toolkit for data processing, analysis, and conversion of data to xlsx format.",
           "link": "https://github.com/tidepool-org/command-line-data-tools",
           "linkText": "(JavaScript)"
         },
@@ -84,20 +92,20 @@ module.exports={
     {
       "title": "VandyApps, Student Organization",
       "subtitle": "President, May 2016 - Present; Vice President, January - May 2016",
-      "description": "A club for students interested in expanding their software-development skills and preparing themselves to be industry-ready engineers. My responsibilities include:",
+      "description": "A club for students interested in expanding their software development skills and preparing to be industry-ready engineers. My responsibilities include:",
       "infoList": [
         {
-          "description": "Coordination of weekly general body meetings including member tech talks, learning sessions, and external visits.",
+          "description": "Coordination of weekly general body meetings including guest speakers, tech talks, and learning sessions.",
           "link": null,
           "linkText": null
         },
         {
-          "description": "Fundraising for club-sponsored events and resources, such as our tech library.",
+          "description": "Fundraising for club-sponsored events and resources, including our tech library.",
           "link": null,
           "linkText": null
         },
         {
-          "description": "Preparation of club-sponsored hack nights and coding competitions.",
+          "description": "Preparation and execution of club-sponsored hack nights and coding competitions.",
           "link": null,
           "linkText": null
         },
@@ -111,7 +119,7 @@ module.exports={
     {
       "title": "Data Structures Class",
       "subtitle": "Teaching Assistant and Grader, January 2016 - Present",
-      "description": "The second course in Vanderbilt's computer science curriculum which introduces data structures and their applications, problem solving techniques, and well-designed software. My responsibilities include:",
+      "description": "The second course in Vanderbilt's computer science curriculum, introducing students to data structures and their applications, problem solving techniques, and software design. My responsibilities include:",
       "infoList": [
         {
           "description": "Grading of weekly programming assignments and projects.",
@@ -132,7 +140,7 @@ module.exports={
     },
     {
       "title": "Mega Rocket Blaster",
-      "subtitle": "Independent Developer",
+      "subtitle": "Independent Developer, January 2015",
       "description": "Designed, developed and released my own iOS app. A modern twist on a classic video game style.",
       "descriptionLink": {
         "text": "(Swift)",
@@ -20771,25 +20779,40 @@ var Resume = React.createClass({
   },
 
   renderContactInformation: function () {
-    return React.createElement(
-      'ul',
-      { className: 'contact-information' },
-      resumeContent.contacts.map(function (contact, i) {
-        if (contact.address === null) return React.createElement(
-          'li',
-          { key: i },
+    let makeContactListItem = function (contact, i) {
+      if (contact.address === null) return React.createElement(
+        'li',
+        { key: i },
+        contact.title
+      );
+      return React.createElement(
+        'li',
+        { key: i },
+        React.createElement(
+          'a',
+          { href: contact.address },
           contact.title
-        );
-        return React.createElement(
-          'li',
-          { key: i },
-          React.createElement(
-            'a',
-            { href: contact.address },
-            contact.title
-          )
-        );
-      })
+        )
+      );
+    };
+
+    return React.createElement(
+      'div',
+      { className: 'contact-information' },
+      React.createElement(
+        'ul',
+        null,
+        resumeContent.contacts.first.map(function (contact, i) {
+          return makeContactListItem(contact, i);
+        })
+      ),
+      React.createElement(
+        'ul',
+        null,
+        resumeContent.contacts.second.map(function (contact, i) {
+          return makeContactListItem(contact, i);
+        })
+      )
     );
   },
 
@@ -20805,7 +20828,12 @@ var Resume = React.createClass({
       React.createElement(
         'p',
         null,
-        resumeContent.objective
+        resumeContent.objective.first
+      ),
+      React.createElement(
+        'p',
+        null,
+        resumeContent.objective.second
       )
     );
   },
@@ -20833,6 +20861,15 @@ var Resume = React.createClass({
           null,
           education.school
         ),
+        React.createElement(
+          'li',
+          null,
+          education.schoolLocation
+        )
+      ),
+      React.createElement(
+        'ul',
+        { className: 'education-highlights' },
         React.createElement(
           'li',
           null,

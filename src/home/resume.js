@@ -20,20 +20,33 @@ var Resume = React.createClass({
   },
 
   renderContactInformation: function() {
+    let makeContactListItem = function(contact, i) {
+      if (contact.address === null)
+        return (<li key={i}>{ contact.title }</li>);
+      return (
+        <li key={i}>
+          <a href={contact.address}>{ contact.title }</a>
+        </li>
+      );
+    };
+
     return (
-      <ul className="contact-information">
-        {
-          resumeContent.contacts.map(function(contact, i) {
-            if (contact.address === null)
-              return (<li key={i}>{ contact.title }</li>);
-            return (
-              <li key={i}>
-                <a href={contact.address}>{ contact.title }</a>
-              </li>
-            );
-          })
-        }
-      </ul>
+      <div className="contact-information">
+        <ul>
+          {
+            resumeContent.contacts.first.map(function(contact, i) {
+              return makeContactListItem(contact, i);
+            })
+          }
+        </ul>
+        <ul>
+          {
+            resumeContent.contacts.second.map(function(contact, i) {
+              return makeContactListItem(contact, i);
+            })
+          }
+        </ul>
+      </div>
     );
   },
 
@@ -41,7 +54,8 @@ var Resume = React.createClass({
     return (
       <div className="objective">
         <h2>Objective</h2>
-        <p>{ resumeContent.objective }</p>
+        <p>{ resumeContent.objective.first }</p>
+        <p>{ resumeContent.objective.second }</p>
       </div>
     );
   },
@@ -64,6 +78,9 @@ var Resume = React.createClass({
         <h2>Education</h2>
         <ul className="education-highlights">
           <li>{ education.school }</li>
+          <li>{ education.schoolLocation }</li>
+        </ul>
+        <ul className="education-highlights">
           <li>{ education.yearMajor }</li>
           <li>{ education.gpa }</li>
         </ul>
