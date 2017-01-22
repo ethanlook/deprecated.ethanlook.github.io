@@ -31,8 +31,8 @@
     ]
   },
   "objective": {
-      first: "Summer internship at a consumer-facing mobile or web company",
-      second: "using and growing my skills in iOS, React, Node.js and JavaScript."
+      "first": "Summer internship at a consumer-facing mobile or web company",
+      "second": "using and growing my skills in iOS, React, Node.js and JavaScript."
   },
   "education": {
     "yearMajor": "B.S. Computer Science, expected 2018",

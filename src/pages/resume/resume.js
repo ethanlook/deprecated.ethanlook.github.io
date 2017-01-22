@@ -1,6 +1,8 @@
+require('./resume.css');
+
 var React = require('react');
-var resumeContent = require('../../config/resume-content');
- 
+var resumeContent = require('../../../config/resume-content.json');
+
 var Resume = React.createClass({
   render: function() {
     return (
@@ -168,4 +170,4 @@ var TechnicalExperienceItem = React.createClass({
   }
 });
 
-module.exports = Resume;
+export default Resume;
