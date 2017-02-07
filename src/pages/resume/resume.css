@@ -177,7 +177,9 @@ a:hover {
 
 @media print {
   @page { margin: 0; }
-  body { margin: 0.5in; }
+  body {
+    margin: 0.35in 0.5in 0;
+  }
 
   #app {
     margin: auto;

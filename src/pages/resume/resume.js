@@ -87,14 +87,12 @@ var Resume = React.createClass({
           <li>{ education.gpa }</li>
         </ul>
 
-        <h3>Relevant Coursework</h3>
-
         <div className="education-current">
-          <p><span className="bold">Current:</span> {currentCourses}</p>
+          <p><span className="bold">Current coursework:</span> {currentCourses}</p>
         </div>
 
         <div className="education-completed">
-          <p><span className="bold">Completed:</span> {completedCourses}</p>
+          <p><span className="bold">Completed coursework:</span> {completedCourses}</p>
         </div>
       </div>
     );

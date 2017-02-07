@@ -21593,11 +21593,6 @@
 	        )
 	      ),
 	      React.createElement(
-	        'h3',
-	        null,
-	        'Relevant Coursework'
-	      ),
-	      React.createElement(
 	        'div',
 	        { className: 'education-current' },
 	        React.createElement(
@@ -21606,7 +21601,7 @@
 	          React.createElement(
 	            'span',
 	            { className: 'bold' },
-	            'Current:'
+	            'Current coursework:'
 	          ),
 	          ' ',
 	          currentCourses
@@ -21621,7 +21616,7 @@
 	          React.createElement(
 	            'span',
 	            { className: 'bold' },
-	            'Completed:'
+	            'Completed coursework:'
 	          ),
 	          ' ',
 	          completedCourses
@@ -21779,7 +21774,7 @@
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400i,500,600);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n font-family: 'Open Sans', sans-serif;\n font-weight: normal;\n text-decoration: none;\n color: #404040;\n margin: 0;\n}\n\nh1 {\n  font-size: 18px;\n  font-weight: bolder;\n  color: #000000;\n  text-transform: uppercase;\n  text-align: center;\n\n  margin-bottom: 10px;\n}\n\nh2 {\n  font-size: 14px;\n  font-weight: bold;\n  text-align: center;\n\n  margin-bottom: 8px;\n}\n\nh3 {\n  font-size: 13px;\n  font-weight: bold;\n\n  margin-bottom: 6px;\n}\n\nh4 {\n  font-size: 12px;\n  font-weight: bold;\n  font-color: #7F7F7F;\n\n  margin-bottom: 4px;\n}\n\np {\n  font-size: 12px;\n  font-color: #7F7F7F;\n  text-align: center;\n}\n\nul {\n  list-style-type: none;\n  padding: 0;\n}\n\nli {\n  font-size: 12px;\n  font-color: #7F7F7F;\n}\n\na:hover {\n  text-decoration: underline;\n}\n\n.bold {\n  font-weight: bold;\n}\n\n#app {\n  margin: 15px auto;\n  min-width: 690px;\n  max-width: 800px;\n\n  padding: 10px;\n}\n\n.separator {\n  width: 80%;\n  margin: 9px auto;\n  height: 1px;\n  background-color: #808080;\n}\n\n.contact-information {\n  margin-bottom: 0;\n}\n\n.contact-information > ul {\n  text-align: center;\n}\n\n.contact-information > ul > li {\n  display: inline-block;\n  margin-right: 16px;\n}\n\n.contact-information > ul > li:last-child {\n  margin-right: 0;\n}\n\n.objective {\n  margin: 0;\n}\n\n.education {\n  margin: 0;\n}\n\n.education-highlights {\n  padding-bottom: 6px;\n  display: flex;\n  justify-content: center;\n}\n\n.education-highlights > li {\n  margin: 0 10px;\n}\n\n.education > h3 {\n  text-align: left;\n}\n\n.education-current {\n  margin-bottom: 4px;\n}\n\n.education-current > p {\n  text-align: left;\n}\n\n.education-current > ul {\n  display: flex;\n  justify-content: center;\n}\n\n.education-current > ul > li {\n  margin: 0 10px;\n}\n\n.education-completed > p {\n  text-align: left;\n}\n\n.education-completed > ul {\n  display: flex;\n  justify-content: space-between;\n}\n\n.technical-experience {\n  margin: 0;\n}\n\n.technical-experience-item {\n  margin-bottom: 10px;\n}\n\n.technical-experience:last-child {\n  margin-bottom: 0px;\n}\n\n.technical-experience-item > ul {\n  list-style-type: circle;\n  padding-left: 20px;\n}\n\n.technical-experience-item > p.description {\n  text-align: left;\n}\n\n.programming-languages {\n  margin: 0;\n}\n\n.programming-languages > ul {\n  display: flex;\n  justify-content: space-between;\n}\n\n@media print {\n  @page { margin: 0; }\n  body { margin: 0.5in; }\n\n  #app {\n    margin: auto;\n    max-width: none;\n    padding: 0;\n  }\n}", ""]);
+	exports.push([module.id, "* {\n font-family: 'Open Sans', sans-serif;\n font-weight: normal;\n text-decoration: none;\n color: #404040;\n margin: 0;\n}\n\nh1 {\n  font-size: 18px;\n  font-weight: bolder;\n  color: #000000;\n  text-transform: uppercase;\n  text-align: center;\n\n  margin-bottom: 10px;\n}\n\nh2 {\n  font-size: 14px;\n  font-weight: bold;\n  text-align: center;\n\n  margin-bottom: 8px;\n}\n\nh3 {\n  font-size: 13px;\n  font-weight: bold;\n\n  margin-bottom: 6px;\n}\n\nh4 {\n  font-size: 12px;\n  font-weight: bold;\n  font-color: #7F7F7F;\n\n  margin-bottom: 4px;\n}\n\np {\n  font-size: 12px;\n  font-color: #7F7F7F;\n  text-align: center;\n}\n\nul {\n  list-style-type: none;\n  padding: 0;\n}\n\nli {\n  font-size: 12px;\n  font-color: #7F7F7F;\n}\n\na:hover {\n  text-decoration: underline;\n}\n\n.bold {\n  font-weight: bold;\n}\n\n#app {\n  margin: 15px auto;\n  min-width: 690px;\n  max-width: 800px;\n\n  padding: 10px;\n}\n\n.separator {\n  width: 80%;\n  margin: 9px auto;\n  height: 1px;\n  background-color: #808080;\n}\n\n.contact-information {\n  margin-bottom: 0;\n}\n\n.contact-information > ul {\n  text-align: center;\n}\n\n.contact-information > ul > li {\n  display: inline-block;\n  margin-right: 16px;\n}\n\n.contact-information > ul > li:last-child {\n  margin-right: 0;\n}\n\n.objective {\n  margin: 0;\n}\n\n.education {\n  margin: 0;\n}\n\n.education-highlights {\n  padding-bottom: 6px;\n  display: flex;\n  justify-content: center;\n}\n\n.education-highlights > li {\n  margin: 0 10px;\n}\n\n.education > h3 {\n  text-align: left;\n}\n\n.education-current {\n  margin-bottom: 4px;\n}\n\n.education-current > p {\n  text-align: left;\n}\n\n.education-current > ul {\n  display: flex;\n  justify-content: center;\n}\n\n.education-current > ul > li {\n  margin: 0 10px;\n}\n\n.education-completed > p {\n  text-align: left;\n}\n\n.education-completed > ul {\n  display: flex;\n  justify-content: space-between;\n}\n\n.technical-experience {\n  margin: 0;\n}\n\n.technical-experience-item {\n  margin-bottom: 10px;\n}\n\n.technical-experience:last-child {\n  margin-bottom: 0px;\n}\n\n.technical-experience-item > ul {\n  list-style-type: circle;\n  padding-left: 20px;\n}\n\n.technical-experience-item > p.description {\n  text-align: left;\n}\n\n.programming-languages {\n  margin: 0;\n}\n\n.programming-languages > ul {\n  display: flex;\n  justify-content: space-between;\n}\n\n@media print {\n  @page { margin: 0; }\n  body {\n    margin: 0.35in 0.5in 0;\n  }\n\n  #app {\n    margin: auto;\n    max-width: none;\n    padding: 0;\n  }\n}", ""]);
 	
 	// exports
 
@@ -22133,22 +22128,26 @@
 			"second": "using and growing my skills in iOS, React, Node.js and JavaScript."
 		},
 		"education": {
-			"yearMajor": "B.S. Computer Science, expected 2018",
+			"yearMajor": "B.S. Computer Science & Mathematics, expected 2018",
 			"school": "Vanderbilt University",
 			"schoolLocation": "Nashville, Tennessee",
-			"gpa": "Major GPA: 4.00, Overall GPA: 3.88",
+			"gpa": "Major GPA: 3.86, Overall GPA: 3.77",
 			"coursework": {
 				"current": [
+					"Big Data",
+					"Error-Correcting Codes and Cryptography",
+					"Theory of Numbers",
+					"Independent Study"
+				],
+				"completed": [
 					"Algorithms",
 					"Operating Systems",
 					"Programming Languages",
-					"Web-based System Architecture"
-				],
-				"completed": [
+					"Web-based System Architecture",
 					"Computer Organization",
 					"Digital Logic",
 					"Discrete Mathematics",
-					"Intermediate Software Design",
+					"Software Design",
 					"Data Structures"
 				]
 			}
@@ -22156,8 +22155,8 @@
 		"technicalExperience": [
 			{
 				"title": "Tidepool, San Francisco, CA",
-				"subtitle": "Software Intern, June 2015 - August 2015; June 2016 - August 2016",
-				"description": "A non-profit startup developing a secure data platform and applications for people living with Type 1 Diabetes. Collaborated closely with design and product management. Responsible for developing:",
+				"subtitle": "Software Intern, June - August 2015; May - August 2016",
+				"description": "A non-profit startup developing a secure data platform and applications for people living with Type 1 Diabetes. Developed:",
 				"infoList": [
 					{
 						"description": "A command-line toolkit for data processing, analysis, and conversion of data to xlsx format.",
@@ -22188,8 +22187,8 @@
 			},
 			{
 				"title": "VandyApps, Student Organization",
-				"subtitle": "President, May 2016 - Present; Vice President, January - May 2016",
-				"description": "A club for students interested in expanding their software development skills and preparing to be industry-ready engineers. My responsibilities include:",
+				"subtitle": "President, May 2016 - present; Vice President, January - May 2016",
+				"description": "A club for students interested in expanding their software development skills and preparing to be industry-ready engineers.",
 				"infoList": [
 					{
 						"description": "Coordination of weekly general body meetings including guest speakers, tech talks, and learning sessions.",
@@ -22214,12 +22213,11 @@
 				]
 			},
 			{
-				"title": "Data Structures Class",
-				"subtitle": "Teaching Assistant and Grader, January 2016 - Present",
-				"description": "The second course in Vanderbilt's computer science curriculum, introducing students to data structures and their applications, problem solving techniques, and software design. My responsibilities include:",
+				"title": "Teaching Assistant and Grader",
+				"subtitle": "Web-based System Architecture Class, January 2017 - present; Data Structures Class, January - December 2016",
 				"infoList": [
 					{
-						"description": "Grading of weekly programming assignments and projects.",
+						"description": "Designing and grading biweekly programming projects and assignments.",
 						"link": null,
 						"linkText": null
 					},
@@ -22229,16 +22227,30 @@
 						"linkText": null
 					},
 					{
-						"description": "Grading of three written midterms and the final exam.",
+						"description": "Grading of weekly quizzes, two midterms, and the final exam.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Web-based System Architecture prepares students to be full-stack web developers in React, Node.js, MongoDB, and Redis.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Data Structures introduces students to data structures and applications, problem solving techniques, and software design.",
 						"link": null,
 						"linkText": null
 					}
 				]
 			},
 			{
-				"title": "Mega Rocket Blaster",
-				"subtitle": "Independent Developer, January 2015",
-				"description": "Designed, developed and released my own iOS app. A modern twist on a classic video game style.",
+				"title": "Undergraduate Research Project, January 2017 - present",
+				"description": "Independent study course developing Quizinator, a web-based application to allow professors to easily and securely administer quizzes and exams to students. Developing the client with React, React Router, React Redux, and Material-UI. Developing the server with Node.js, Express, MongoDB, and Redis.",
+				"infoList": []
+			},
+			{
+				"title": "Independent Developer, January 2015",
+				"description": "Designed, developed and released my own iOS app, Mega Rocket Blaster. A modern twist on a classic video game style.",
 				"descriptionLink": {
 					"text": "(Swift)",
 					"link": "https://itunes.apple.com/us/app/mega-rocket-blaster/id957161385?mt=8"
