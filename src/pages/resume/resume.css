@@ -119,58 +119,49 @@ a:hover {
   text-align: left;
 }
 
-.education-current {
+.education-relevant {
   margin-bottom: 4px;
 }
 
-.education-current > p {
+.education-relevant > p {
   text-align: left;
 }
 
-.education-current > ul {
+.education-relevant > ul {
   display: flex;
   justify-content: center;
 }
 
-.education-current > ul > li {
+.education-relevant > ul > li {
   margin: 0 10px;
 }
 
-.education-completed > p {
-  text-align: left;
-}
-
-.education-completed > ul {
-  display: flex;
-  justify-content: space-between;
-}
-
-.technical-experience {
+.experience {
   margin: 0;
 }
 
-.technical-experience-item {
+.experience-item {
   margin-bottom: 10px;
 }
 
-.technical-experience:last-child {
+.experience:last-child {
   margin-bottom: 0px;
 }
 
-.technical-experience-item > ul {
+.experience-item > ul {
   list-style-type: circle;
   padding-left: 20px;
 }
 
-.technical-experience-item > p.description {
+.experience-item > p.description {
   text-align: left;
 }
 
-.programming-languages {
+.skills {
   margin: 0;
 }
 
-.programming-languages > ul {
+.skills > ul {
   display: flex;
   justify-content: space-between;
 }
@@ -178,7 +169,7 @@ a:hover {
 @media print {
   @page { margin: 0; }
   body {
-    margin: 0.35in 0.5in 0;
+    margin: 0.37in 0.5in 0;
   }
 
   #app {
