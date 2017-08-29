@@ -60,7 +60,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_resume2.default, null), document.getElementById('app'));
+	_reactDom2.default.render(_resume2.default, document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -21460,296 +21460,433 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	__webpack_require__(174);
 	
-	var React = __webpack_require__(166);
-	var resumeContent = __webpack_require__(178);
+	var _react = __webpack_require__(166);
 	
-	var Resume = React.createClass({
-	  displayName: 'Resume',
+	var _react2 = _interopRequireDefault(_react);
 	
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { className: 'print-resume' },
-	      React.createElement(
-	        'h1',
-	        null,
-	        resumeContent.name
+	var _resumeContent = __webpack_require__(174);
+	
+	var _resumeContent2 = _interopRequireDefault(_resumeContent);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	__webpack_require__(175);
+	
+	var getSeparator = function getSeparator() {
+	  return _react2.default.createElement('div', { className: 'separator' });
+	};
+	
+	var getName = function getName(name) {
+	  return _react2.default.createElement(
+	    'h1',
+	    null,
+	    name
+	  );
+	};
+	
+	var getContactListItem = function getContactListItem(contact, i) {
+	  if (contact.address === null) return _react2.default.createElement(
+	    'li',
+	    { key: i },
+	    contact.title
+	  );
+	  return _react2.default.createElement(
+	    'li',
+	    { key: i },
+	    _react2.default.createElement(
+	      'a',
+	      { href: contact.address },
+	      contact.title
+	    )
+	  );
+	};
+	
+	var getContactInfo = function getContactInfo(info) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'contact-information' },
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      info.first && info.first.map(getContactListItem)
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      info.second && info.second.map(getContactListItem)
+	    )
+	  );
+	};
+	
+	var getCourses = function getCourses(courses) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'education-relevant' },
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'bold' },
+	        'Notable coursework:'
 	      ),
-	      this.renderContactInformation(),
-	      React.createElement('div', { className: 'separator' }),
-	      this.renderObjective(),
-	      React.createElement('div', { className: 'separator' }),
-	      this.renderEducation(),
-	      React.createElement('div', { className: 'separator' }),
-	      this.renderTechnicalExperience(),
-	      React.createElement('div', { className: 'separator' }),
-	      this.renderLanguages()
-	    );
-	  },
+	      ' ',
+	      courses.join(', ')
+	    )
+	  );
+	};
 	
-	  renderContactInformation: function renderContactInformation() {
-	    var makeContactListItem = function makeContactListItem(contact, i) {
-	      if (contact.address === null) return React.createElement(
+	var getEducation = function getEducation(education) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'education' },
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Education at ',
+	      education.school
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'education-highlights' },
+	      _react2.default.createElement(
 	        'li',
-	        { key: i },
-	        contact.title
-	      );
-	      return React.createElement(
+	        null,
+	        education.yearMajor
+	      ),
+	      _react2.default.createElement(
 	        'li',
-	        { key: i },
-	        React.createElement(
-	          'a',
-	          { href: contact.address },
-	          contact.title
-	        )
-	      );
-	    };
-	
-	    return React.createElement(
-	      'div',
-	      { className: 'contact-information' },
-	      React.createElement(
-	        'ul',
 	        null,
-	        resumeContent.contacts.first.map(function (contact, i) {
-	          return makeContactListItem(contact, i);
-	        })
-	      ),
-	      React.createElement(
-	        'ul',
-	        null,
-	        resumeContent.contacts.second.map(function (contact, i) {
-	          return makeContactListItem(contact, i);
-	        })
+	        education.gpa
 	      )
+	    ),
+	    education.coursework && getCourses(education.coursework)
+	  );
+	};
+	
+	var getExperienceDescription = function getExperienceDescription(experience) {
+	  if (!experience.descriptionLink) {
+	    return _react2.default.createElement(
+	      'p',
+	      { className: 'description' },
+	      experience.description
 	    );
-	  },
+	  }
+	  return _react2.default.createElement(
+	    'p',
+	    { className: 'description' },
+	    experience.description,
+	    ' ',
+	    _react2.default.createElement(
+	      'a',
+	      { href: experience.descriptionLink.link },
+	      experience.descriptionLink.text
+	    )
+	  );
+	};
 	
-	  renderObjective: function renderObjective() {
-	    return React.createElement(
-	      'div',
-	      { className: 'objective' },
-	      React.createElement(
-	        'h2',
-	        null,
-	        'Objective'
-	      ),
-	      React.createElement(
-	        'p',
-	        null,
-	        resumeContent.objective.first
-	      ),
-	      React.createElement(
-	        'p',
-	        null,
-	        resumeContent.objective.second
-	      )
-	    );
-	  },
-	
-	  renderEducation: function renderEducation() {
-	    var education = resumeContent.education;
-	
-	    var currentCourses = education.coursework.current.join(", ");
-	
-	    var completedCourses = education.coursework.completed.join(", ");
-	
-	    return React.createElement(
-	      'div',
-	      { className: 'education' },
-	      React.createElement(
-	        'h2',
-	        null,
-	        'Education'
-	      ),
-	      React.createElement(
-	        'ul',
-	        { className: 'education-highlights' },
-	        React.createElement(
+	var getExperienceItem = function getExperienceItem(experience, i) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'experience-item', key: i },
+	    _react2.default.createElement(
+	      'h3',
+	      { className: 'title' },
+	      experience.title
+	    ),
+	    _react2.default.createElement(
+	      'h4',
+	      { className: 'subtitle' },
+	      experience.subtitle
+	    ),
+	    getExperienceDescription(experience),
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'info-list' },
+	      experience.infoList.map(function (info, j) {
+	        if (info.link != null) {
+	          return _react2.default.createElement(
+	            'li',
+	            { key: j },
+	            info.description,
+	            ' ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: info.link },
+	              info.linkText
+	            )
+	          );
+	        }
+	        return _react2.default.createElement(
 	          'li',
-	          null,
-	          education.school
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          education.schoolLocation
-	        )
-	      ),
-	      React.createElement(
-	        'ul',
-	        { className: 'education-highlights' },
-	        React.createElement(
-	          'li',
-	          null,
-	          education.yearMajor
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          education.gpa
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'education-current' },
-	        React.createElement(
-	          'p',
-	          null,
-	          React.createElement(
-	            'span',
-	            { className: 'bold' },
-	            'Current coursework:'
-	          ),
-	          ' ',
-	          currentCourses
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'education-completed' },
-	        React.createElement(
-	          'p',
-	          null,
-	          React.createElement(
-	            'span',
-	            { className: 'bold' },
-	            'Completed coursework:'
-	          ),
-	          ' ',
-	          completedCourses
-	        )
-	      )
-	    );
-	  },
-	
-	  renderTechnicalExperience: function renderTechnicalExperience() {
-	    return React.createElement(
-	      'div',
-	      { className: 'technical-experience' },
-	      React.createElement(
-	        'h2',
-	        null,
-	        'Technical Experience'
-	      ),
-	      resumeContent.technicalExperience.map(function (experience, i) {
-	        return React.createElement(TechnicalExperienceItem, {
-	          experience: experience,
-	          key: i });
+	          { key: j },
+	          info.description
+	        );
 	      })
-	    );
-	  },
+	    )
+	  );
+	};
 	
-	  renderLanguages: function renderLanguages() {
-	    return React.createElement(
-	      'div',
-	      { className: 'programming-languages' },
-	      React.createElement(
-	        'h2',
-	        null,
-	        'Programming Languages and Libraries'
-	      ),
-	      React.createElement(
-	        'ul',
-	        null,
-	        resumeContent.programmingLanguages.map(function (language, i) {
-	          return React.createElement(
-	            'li',
-	            { key: i },
-	            language
-	          );
-	        })
-	      )
-	    );
-	  }
-	});
+	var getExperience = function getExperience(experience) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'experience' },
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Technical Experience'
+	    ),
+	    experience.map(getExperienceItem)
+	  );
+	};
 	
-	var TechnicalExperienceItem = React.createClass({
-	  displayName: 'TechnicalExperienceItem',
+	var getSkills = function getSkills(skills) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'skills' },
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Programming Languages and Libraries'
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      null,
+	      skills.map(function (skill, i) {
+	        return _react2.default.createElement(
+	          'li',
+	          { key: i },
+	          skill
+	        );
+	      })
+	    )
+	  );
+	};
 	
-	  propTypes: {
-	    experience: React.PropTypes.object.isRequired
-	  },
+	var getResume = function getResume(_ref) {
+	  var name = _ref.name,
+	      contactInfo = _ref.contactInfo,
+	      objective = _ref.objective,
+	      education = _ref.education,
+	      experience = _ref.experience,
+	      skills = _ref.skills;
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'print-resume' },
+	    name && getName(name),
+	    contactInfo && getContactInfo(contactInfo),
+	    contactInfo && getSeparator(),
+	    education && getEducation(education),
+	    education && getSeparator(),
+	    experience && getExperience(experience),
+	    experience && getSeparator(),
+	    skills && getSkills(skills)
+	  );
+	};
 	
-	  render: function render() {
-	    var description;
-	    var descriptionLink = this.props.experience.descriptionLink;
-	    if (descriptionLink == null) {
-	      description = React.createElement(
-	        'p',
-	        { className: 'description' },
-	        this.props.experience.description
-	      );
-	    } else {
-	      description = React.createElement(
-	        'p',
-	        { className: 'description' },
-	        this.props.experience.description,
-	        ' ',
-	        React.createElement(
-	          'a',
-	          { href: descriptionLink.link },
-	          descriptionLink.text
-	        )
-	      );
-	    }
-	    return React.createElement(
-	      'div',
-	      { className: 'technical-experience-item' },
-	      React.createElement(
-	        'h3',
-	        { className: 'title' },
-	        this.props.experience.title
-	      ),
-	      React.createElement(
-	        'h4',
-	        { className: 'subtitle' },
-	        this.props.experience.subtitle
-	      ),
-	      description,
-	      React.createElement(
-	        'ul',
-	        { className: 'info-list' },
-	        this.props.experience.infoList.map(function (info, i) {
-	          if (info.link != null) {
-	            return React.createElement(
-	              'li',
-	              { key: i },
-	              info.description,
-	              ' ',
-	              React.createElement(
-	                'a',
-	                { href: info.link },
-	                info.linkText
-	              )
-	            );
-	          }
-	          return React.createElement(
-	            'li',
-	            { key: i },
-	            info.description
-	          );
-	        })
-	      )
-	    );
-	  }
-	});
-	
-	exports.default = Resume;
+	exports.default = getResume(_resumeContent2.default);
 
 /***/ },
 /* 174 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"name": "Ethan Look",
+		"contactInfo": {
+			"first": [
+				{
+					"title": "ethan@lookfamily.org",
+					"address": "mailto:ethan@lookfamily.org"
+				},
+				{
+					"title": "650-823-8500",
+					"address": "tel:650-823-8500"
+				},
+				{
+					"title": "1401 Parkinson Avenue, Palo Alto, CA 94301",
+					"address": null
+				}
+			],
+			"second": [
+				{
+					"title": "github.com/ethanlook",
+					"address": "https://github.com/ethanlook"
+				},
+				{
+					"title": "linkedin.com/in/ethanlook",
+					"address": "https://www.linkedin.com/in/ethanlook"
+				}
+			]
+		},
+		"objective": {
+			"first": "Full-time employment opportunity at a consumer-facing mobile or web company",
+			"second": "using and growing my skills in iOS, React, Node.js and JavaScript."
+		},
+		"education": {
+			"yearMajor": "B.S. Computer Science & Mathematics, expected 2018",
+			"school": "Vanderbilt University",
+			"gpa": "Major GPA: 3.89, Overall GPA: 3.78",
+			"coursework": [
+				"Artificial Intelligence",
+				"Big Data",
+				"Cloud Computing",
+				"Human Computer Interaction",
+				"Mathematical Data Science",
+				"Web-based System Architecture"
+			]
+		},
+		"experience": [
+			{
+				"title": "Nest Labs, Palo Alto, CA",
+				"subtitle": "Web Applications Software Engineering Intern, May - August 2017",
+				"description": "A consumer device company intended \"to create a home that takes care of the people inside it and the world around it.\" Developed:",
+				"infoList": [
+					{
+						"description": "Features that leverage new Web APIs. Architected the system for multiple platforms. Worked directly with multiple teams. Documented the implementation and deployment strategies.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Dynamic pucks for displaying device state in the \"spaces\" view.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "A client for the Redux store that reflects localStorage state.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "React views displaying Redux store data to replace legacy Backbone views.",
+						"link": null,
+						"linkText": null
+					}
+				]
+			},
+			{
+				"title": "Tidepool, San Francisco, CA",
+				"subtitle": "Software Intern, June - August 2015; May - August 2016",
+				"description": "A non-profit startup developing a secure data platform and applications for people living with Type 1 Diabetes. Developed:",
+				"infoList": [
+					{
+						"description": "A command-line toolkit for data processing, analysis, and conversion of data to xlsx format.",
+						"link": "https://github.com/tidepool-org/command-line-data-tools",
+						"linkText": "(JavaScript)"
+					},
+					{
+						"description": "A client-side data visualization for generating printed reports.",
+						"link": "https://github.com/ethanlook/blip/tree/ethanlook-printview",
+						"linkText": "(JavaScript, React, D3.js)"
+					},
+					{
+						"description": "An iOS framework for interfacing with data ingestion REST APIs.",
+						"link": "https://github.com/ethanlook/TidepoolKit",
+						"linkText": "(Swift)"
+					},
+					{
+						"description": "An iOS application to add context to diabetes data.",
+						"link": "https://github.com/tidepool-org/urchin",
+						"linkText": "(Swift)"
+					},
+					{
+						"description": "Automated and manual tests, documentation.",
+						"link": null,
+						"linkText": null
+					}
+				]
+			},
+			{
+				"title": "VandyApps, Student Organization",
+				"subtitle": "President, May 2016 - May 2017; Vice President, January - May 2016",
+				"description": "A club for students interested in expanding their software development skills and preparing to be industry-ready engineers.",
+				"infoList": [
+					{
+						"description": "Coordination of weekly general body meetings including guest speakers, tech talks, and learning sessions.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Fundraising for club-sponsored events and resources, including our tech library.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Preparation and execution of club-sponsored hack nights and coding competitions.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Development of teaching materials for introductory iOS sessions.",
+						"link": null,
+						"linkText": null
+					}
+				]
+			},
+			{
+				"title": "Teaching Assistant and Grader",
+				"subtitle": "Web-based System Architecture Class, January 2017 - present; Data Structures Class, January - December 2016",
+				"infoList": [
+					{
+						"description": "Designing and grading biweekly programming projects and assignments.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Student support via weekly office hours.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Grading of weekly quizzes, two midterms, and the final exam.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Web-based System Architecture prepares students to be full-stack web developers in React, Node.js, MongoDB, and Redis.",
+						"link": null,
+						"linkText": null
+					},
+					{
+						"description": "Data Structures introduces students to data structures and applications, problem solving techniques, and software design.",
+						"link": null,
+						"linkText": null
+					}
+				]
+			},
+			{
+				"title": "Undergraduate Research Project, January 2017 - present",
+				"description": "Independent study course developing Quizinator, a web-based application to allow professors to easily and securely administer quizzes and exams to students. Developing the client with React, React Router, React Redux, and Material-UI. Developing the server with Node.js, Express, MongoDB, and Redis.",
+				"infoList": []
+			}
+		],
+		"skills": [
+			"C++",
+			"CSS",
+			"D3.js",
+			"HTML",
+			"Java",
+			"JavaScript",
+			"Node.js",
+			"Processing",
+			"Python",
+			"React",
+			"Redux",
+			"Swift"
+		]
+	};
+
+/***/ },
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(175);
+	var content = __webpack_require__(176);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(177)(content, {});
+	var update = __webpack_require__(178)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -21766,21 +21903,21 @@
 	}
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(176)();
+	exports = module.exports = __webpack_require__(177)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400i,500,600);", ""]);
 	
 	// module
-	exports.push([module.id, "* {\n font-family: 'Open Sans', sans-serif;\n font-weight: normal;\n text-decoration: none;\n color: #404040;\n margin: 0;\n}\n\nh1 {\n  font-size: 18px;\n  font-weight: bolder;\n  color: #000000;\n  text-transform: uppercase;\n  text-align: center;\n\n  margin-bottom: 10px;\n}\n\nh2 {\n  font-size: 14px;\n  font-weight: bold;\n  text-align: center;\n\n  margin-bottom: 8px;\n}\n\nh3 {\n  font-size: 13px;\n  font-weight: bold;\n\n  margin-bottom: 6px;\n}\n\nh4 {\n  font-size: 12px;\n  font-weight: bold;\n  font-color: #7F7F7F;\n\n  margin-bottom: 4px;\n}\n\np {\n  font-size: 12px;\n  font-color: #7F7F7F;\n  text-align: center;\n}\n\nul {\n  list-style-type: none;\n  padding: 0;\n}\n\nli {\n  font-size: 12px;\n  font-color: #7F7F7F;\n}\n\na:hover {\n  text-decoration: underline;\n}\n\n.bold {\n  font-weight: bold;\n}\n\n#app {\n  margin: 15px auto;\n  min-width: 690px;\n  max-width: 800px;\n\n  padding: 10px;\n}\n\n.separator {\n  width: 80%;\n  margin: 9px auto;\n  height: 1px;\n  background-color: #808080;\n}\n\n.contact-information {\n  margin-bottom: 0;\n}\n\n.contact-information > ul {\n  text-align: center;\n}\n\n.contact-information > ul > li {\n  display: inline-block;\n  margin-right: 16px;\n}\n\n.contact-information > ul > li:last-child {\n  margin-right: 0;\n}\n\n.objective {\n  margin: 0;\n}\n\n.education {\n  margin: 0;\n}\n\n.education-highlights {\n  padding-bottom: 6px;\n  display: flex;\n  justify-content: center;\n}\n\n.education-highlights > li {\n  margin: 0 10px;\n}\n\n.education > h3 {\n  text-align: left;\n}\n\n.education-current {\n  margin-bottom: 4px;\n}\n\n.education-current > p {\n  text-align: left;\n}\n\n.education-current > ul {\n  display: flex;\n  justify-content: center;\n}\n\n.education-current > ul > li {\n  margin: 0 10px;\n}\n\n.education-completed > p {\n  text-align: left;\n}\n\n.education-completed > ul {\n  display: flex;\n  justify-content: space-between;\n}\n\n.technical-experience {\n  margin: 0;\n}\n\n.technical-experience-item {\n  margin-bottom: 10px;\n}\n\n.technical-experience:last-child {\n  margin-bottom: 0px;\n}\n\n.technical-experience-item > ul {\n  list-style-type: circle;\n  padding-left: 20px;\n}\n\n.technical-experience-item > p.description {\n  text-align: left;\n}\n\n.programming-languages {\n  margin: 0;\n}\n\n.programming-languages > ul {\n  display: flex;\n  justify-content: space-between;\n}\n\n@media print {\n  @page { margin: 0; }\n  body {\n    margin: 0.35in 0.5in 0;\n  }\n\n  #app {\n    margin: auto;\n    max-width: none;\n    padding: 0;\n  }\n}", ""]);
+	exports.push([module.id, "* {\n font-family: 'Open Sans', sans-serif;\n font-weight: normal;\n text-decoration: none;\n color: #404040;\n margin: 0;\n}\n\nh1 {\n  font-size: 18px;\n  font-weight: bolder;\n  color: #000000;\n  text-transform: uppercase;\n  text-align: center;\n\n  margin-bottom: 10px;\n}\n\nh2 {\n  font-size: 14px;\n  font-weight: bold;\n  text-align: center;\n\n  margin-bottom: 8px;\n}\n\nh3 {\n  font-size: 13px;\n  font-weight: bold;\n\n  margin-bottom: 6px;\n}\n\nh4 {\n  font-size: 12px;\n  font-weight: bold;\n  font-color: #7F7F7F;\n\n  margin-bottom: 4px;\n}\n\np {\n  font-size: 12px;\n  font-color: #7F7F7F;\n  text-align: center;\n}\n\nul {\n  list-style-type: none;\n  padding: 0;\n}\n\nli {\n  font-size: 12px;\n  font-color: #7F7F7F;\n}\n\na:hover {\n  text-decoration: underline;\n}\n\n.bold {\n  font-weight: bold;\n}\n\n#app {\n  margin: 15px auto;\n  min-width: 690px;\n  max-width: 800px;\n\n  padding: 10px;\n}\n\n.separator {\n  width: 80%;\n  margin: 9px auto;\n  height: 1px;\n  background-color: #808080;\n}\n\n.contact-information {\n  margin-bottom: 0;\n}\n\n.contact-information > ul {\n  text-align: center;\n}\n\n.contact-information > ul > li {\n  display: inline-block;\n  margin-right: 16px;\n}\n\n.contact-information > ul > li:last-child {\n  margin-right: 0;\n}\n\n.objective {\n  margin: 0;\n}\n\n.education {\n  margin: 0;\n}\n\n.education-highlights {\n  padding-bottom: 6px;\n  display: flex;\n  justify-content: center;\n}\n\n.education-highlights > li {\n  margin: 0 10px;\n}\n\n.education > h3 {\n  text-align: left;\n}\n\n.education-relevant {\n  margin-bottom: 4px;\n}\n\n.education-relevant > p {\n  text-align: left;\n}\n\n.education-relevant > ul {\n  display: flex;\n  justify-content: center;\n}\n\n.education-relevant > ul > li {\n  margin: 0 10px;\n}\n\n.experience {\n  margin: 0;\n}\n\n.experience-item {\n  margin-bottom: 10px;\n}\n\n.experience:last-child {\n  margin-bottom: 0px;\n}\n\n.experience-item > ul {\n  list-style-type: circle;\n  padding-left: 20px;\n}\n\n.experience-item > p.description {\n  text-align: left;\n}\n\n.skills {\n  margin: 0;\n}\n\n.skills > ul {\n  display: flex;\n  justify-content: space-between;\n}\n\n@media print {\n  @page { margin: 0; }\n  body {\n    margin: 0.37in 0.5in 0;\n  }\n\n  #app {\n    margin: auto;\n    max-width: none;\n    padding: 0;\n  }\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports) {
 
 	/*
@@ -21836,7 +21973,7 @@
 
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -22086,192 +22223,6 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
-
-/***/ },
-/* 178 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		"name": "Ethan Look",
-		"contacts": {
-			"first": [
-				{
-					"title": "ethan@lookfamily.org",
-					"address": "mailto:ethan@lookfamily.org"
-				},
-				{
-					"title": "650-823-8500",
-					"address": "tel:650-823-8500"
-				},
-				{
-					"title": "1401 Parkinson Ave.",
-					"address": null
-				},
-				{
-					"title": "Palo Alto, CA 94301",
-					"address": null
-				}
-			],
-			"second": [
-				{
-					"title": "github.com/ethanlook",
-					"address": "https://github.com/ethanlook"
-				},
-				{
-					"title": "linkedin.com/in/ethanlook",
-					"address": "https://www.linkedin.com/in/ethanlook"
-				}
-			]
-		},
-		"objective": {
-			"first": "Summer internship at a consumer-facing mobile or web company",
-			"second": "using and growing my skills in iOS, React, Node.js and JavaScript."
-		},
-		"education": {
-			"yearMajor": "B.S. Computer Science & Mathematics, expected 2018",
-			"school": "Vanderbilt University",
-			"schoolLocation": "Nashville, Tennessee",
-			"gpa": "Major GPA: 3.86, Overall GPA: 3.77",
-			"coursework": {
-				"current": [
-					"Big Data",
-					"Error-Correcting Codes and Cryptography",
-					"Theory of Numbers",
-					"Independent Study"
-				],
-				"completed": [
-					"Algorithms",
-					"Operating Systems",
-					"Programming Languages",
-					"Web-based System Architecture",
-					"Computer Organization",
-					"Digital Logic",
-					"Discrete Mathematics",
-					"Software Design",
-					"Data Structures"
-				]
-			}
-		},
-		"technicalExperience": [
-			{
-				"title": "Tidepool, San Francisco, CA",
-				"subtitle": "Software Intern, June - August 2015; May - August 2016",
-				"description": "A non-profit startup developing a secure data platform and applications for people living with Type 1 Diabetes. Developed:",
-				"infoList": [
-					{
-						"description": "A command-line toolkit for data processing, analysis, and conversion of data to xlsx format.",
-						"link": "https://github.com/tidepool-org/command-line-data-tools",
-						"linkText": "(JavaScript)"
-					},
-					{
-						"description": "A client-side data visualization for generating printed reports.",
-						"link": "https://github.com/ethanlook/blip/tree/ethanlook-printview",
-						"linkText": "(JavaScript, React, D3.js)"
-					},
-					{
-						"description": "An iOS framework for interfacing with data ingestion REST APIs.",
-						"link": "https://github.com/ethanlook/TidepoolKit",
-						"linkText": "(Swift)"
-					},
-					{
-						"description": "An iOS application to add context to diabetes data.",
-						"link": "https://github.com/tidepool-org/urchin",
-						"linkText": "(Swift)"
-					},
-					{
-						"description": "Automated and manual tests, documentation.",
-						"link": null,
-						"linkText": null
-					}
-				]
-			},
-			{
-				"title": "VandyApps, Student Organization",
-				"subtitle": "President, May 2016 - present; Vice President, January - May 2016",
-				"description": "A club for students interested in expanding their software development skills and preparing to be industry-ready engineers.",
-				"infoList": [
-					{
-						"description": "Coordination of weekly general body meetings including guest speakers, tech talks, and learning sessions.",
-						"link": null,
-						"linkText": null
-					},
-					{
-						"description": "Fundraising for club-sponsored events and resources, including our tech library.",
-						"link": null,
-						"linkText": null
-					},
-					{
-						"description": "Preparation and execution of club-sponsored hack nights and coding competitions.",
-						"link": null,
-						"linkText": null
-					},
-					{
-						"description": "Development of teaching materials for introductory iOS sessions.",
-						"link": null,
-						"linkText": null
-					}
-				]
-			},
-			{
-				"title": "Teaching Assistant and Grader",
-				"subtitle": "Web-based System Architecture Class, January 2017 - present; Data Structures Class, January - December 2016",
-				"infoList": [
-					{
-						"description": "Designing and grading biweekly programming projects and assignments.",
-						"link": null,
-						"linkText": null
-					},
-					{
-						"description": "Student support via weekly office hours.",
-						"link": null,
-						"linkText": null
-					},
-					{
-						"description": "Grading of weekly quizzes, two midterms, and the final exam.",
-						"link": null,
-						"linkText": null
-					},
-					{
-						"description": "Web-based System Architecture prepares students to be full-stack web developers in React, Node.js, MongoDB, and Redis.",
-						"link": null,
-						"linkText": null
-					},
-					{
-						"description": "Data Structures introduces students to data structures and applications, problem solving techniques, and software design.",
-						"link": null,
-						"linkText": null
-					}
-				]
-			},
-			{
-				"title": "Undergraduate Research Project, January 2017 - present",
-				"description": "Independent study course developing Quizinator, a web-based application to allow professors to easily and securely administer quizzes and exams to students. Developing the client with React, React Router, React Redux, and Material-UI. Developing the server with Node.js, Express, MongoDB, and Redis.",
-				"infoList": []
-			},
-			{
-				"title": "Independent Developer, January 2015",
-				"description": "Designed, developed and released my own iOS app, Mega Rocket Blaster. A modern twist on a classic video game style.",
-				"descriptionLink": {
-					"text": "(Swift)",
-					"link": "https://itunes.apple.com/us/app/mega-rocket-blaster/id957161385?mt=8"
-				},
-				"infoList": []
-			}
-		],
-		"programmingLanguages": [
-			"C++",
-			"CSS",
-			"D3.js",
-			"HTML",
-			"Java",
-			"JavaScript",
-			"Node.js",
-			"Processing",
-			"Python",
-			"React",
-			"Swift"
-		]
-	};
 
 /***/ }
 /******/ ]);
